@@ -1,4 +1,4 @@
-function Header({aboutTab,setAboutTab}) {
+function Header() {
   return (
     <header className="p-3 text-bg-dark">
       <div className="container">
@@ -24,8 +24,8 @@ function Header({aboutTab,setAboutTab}) {
                 Home
               </a>
             </li>
-            <li onClick={()=>{setAboutTab("ABOUTME")}}>
-              <a href="#" className={`nav-link px-2 text-white ${aboutTab ==="ABOUTME"}`}>
+            <li>
+              <a href="#" className="nav-link px-2 text-white">
                 Features
               </a>
             </li>
