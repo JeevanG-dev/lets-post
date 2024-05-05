@@ -61,9 +61,9 @@ const DEFAULT_POST_LIST = [
   {
     id: "3",
     title: "Got Job",
-    body: "since 3 months",
-    reaction: 15,
-    userId: "user-12",
+    body: "On April last 2024",
+    reaction: 200,
+    userId: "user-10",
     tags: ["Graduating", "Unbelievable"],
   },
 ];
