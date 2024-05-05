@@ -58,6 +58,7 @@ const DEFAULT_POST_LIST = [
     userId: "user-12",
     tags: ["Graduating", "Unbelievable"],
   },
+  
 ];
 
 export default PostListProvider;
