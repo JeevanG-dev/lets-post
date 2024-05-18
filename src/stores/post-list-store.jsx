@@ -13,6 +13,9 @@ let newPostList = currPostList;
 if(action.type ==="DELETE_POST"){
   newPostList= currPostList.filter((post) => post.id !== action.payload.postID)
 }
+else if(action.type === "ADD_POST"){
+  newPostList = [action.payload, ...currPostList]
+}
 
   return newPostList;
 }
@@ -20,7 +23,21 @@ if(action.type ==="DELETE_POST"){
 const PostListProvider = ({ children }) => {
   const [postList, dispatchPostList] = useReducer(postListReducer,DEFAULT_POST_LIST);
 
-  function addPost() {}
+  function addPost(userId,postTitle,postBody,reactions,tags) {
+    dispatchPostList(
+      {
+        type:'ADD_POST',
+        payload: {
+          id:Date.now(),
+    title: postTitle,
+    body: postBody,
+    reaction: reactions,
+    userId:userId,
+    tags: tags,
+        }
+      }
+    )
+  }
 
   function deletePost(postID) {
 
@@ -50,22 +67,7 @@ const DEFAULT_POST_LIST = [
     userId: "user-9",
     tags: ["vaction", "mumbai", "Enjoying"],
   },
-  {
-    id: "2",
-    title: "Learnig coding",
-    body: "since 3 months",
-    reaction: 15,
-    userId: "user-12",
-    tags: ["Graduating", "Unbelievable"],
-  },
-  {
-    id: "3",
-    title: "Got Job",
-    body: "On April last 2024",
-    reaction: 200,
-    userId: "user-10",
-    tags: ["Graduating", "Unbelievable"],
-  },
+  
 ];
 
 export default PostListProvider;
